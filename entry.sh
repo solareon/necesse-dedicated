@@ -13,12 +13,12 @@ fi
 cd "${STEAMAPPDIR}"
 
 "./StartServer-nogui.sh" -localdir \
-                -world ${WORLD} \
-                -slots ${SLOTS} \
-                -motd "${MOTD}" \
-                -password "${PASSWORD}" \
-                -pausewhenempty ${PAUSE} \
-                -giveclientspower ${GIVE_CLIENTS_POWER} \
-                -logging ${LOGGING} \
-                -zipsaves ${ZIP} \
-                {{ADDITIONAL_ARGS}}
+  -world ${WORLD} \
+  -slots ${SLOTS} \
+  -motd "${MOTD}" \
+  -password "${PASSWORD}" \
+  -pausewhenempty ${PAUSE} \
+  -giveclientspower ${GIVE_CLIENTS_POWER} \
+  -logging ${LOGGING} \
+  -zipsaves ${ZIP}
+                
