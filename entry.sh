@@ -1,4 +1,6 @@
 #!/bin/bash
+su steam
+
 mkdir -p "${STEAMAPPDIR}" || true
 
 # Override SteamCMD launch arguments if necessary

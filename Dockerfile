@@ -17,9 +17,9 @@ ENV WORLD=world \
         ZIP=true
 
 # Switch to user
-USER ${USER}
+USER steam
 
-WORKDIR ${HOMEDIR}
+WORKDIR /home/steam
 
 COPY entry.sh .
 
