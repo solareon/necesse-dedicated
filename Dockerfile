@@ -23,6 +23,10 @@ WORKDIR ${HOMEDIR}
 
 COPY entry.sh .
 
+RUN mkdir ${STEAMAPPDIR}
+
+RUN chown ${USER}:${USER} ${STEAMAPPDIR}
+
 # Overwrite Stopsignal for graceful server exits
 STOPSIGNAL SIGINT
 
