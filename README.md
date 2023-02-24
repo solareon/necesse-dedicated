@@ -80,7 +80,7 @@ The most important settings exposed as environment variables are the following:
 
 | Setting | Value Type | Example Value | Comment |
 |----------|:-------------:|:------:|---|
-| WORLD | string | "world" | Name of server. Previously used but currently not used |
+| WORLD | string | "world" | Name of server save file. |
 | MOTD | string | "This is a my Necesse dedicated server" | Short description of server purpose, rules, message of the day. |
 | PORT | number | 14159 | UDP port for game traffic. |
 | SLOTS | number | 10 | Max number of concurrent players on server. |
