@@ -21,6 +21,10 @@ ENV WORLD="world" \
     ADDITIONAL_ARGS="" \
     STEAMCMD_UPDATE_ARGS=""
 
+RUN mkdir ${STEAMAPPDIR}
+
+RUN chown ${USER}:${USER} ${STEAMAPPDIR}
+
 # Switch to user
 USER ${USER}
 
@@ -28,9 +32,7 @@ WORKDIR ${HOMEDIR}
 
 COPY entry.sh .
 
-RUN mkdir ${STEAMAPPDIR}
-
-RUN chown ${USER}:${USER} ${STEAMAPPDIR}
+COPY server.cfg ${STEAMAPPDIR}/cfg/
 
 # Overwrite Stopsignal for graceful server exits
 STOPSIGNAL SIGINT
