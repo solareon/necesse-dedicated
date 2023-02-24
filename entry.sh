@@ -15,14 +15,14 @@ CONFIG_FILE=${STEAMAPPDIR}/cfg/server.cfg
 # Replace configuration options with environment variables
 sed -i "s/port = [0-9]\+/port = $PORT/" "$CONFIG_FILE"
 sed -i "s/slots = [0-9]\+/slots = $SLOTS/" "$CONFIG_FILE"
-sed -i "s/password = \".*\"/password = \"$PASSWORD\"/" "$CONFIG_FILE"
+sed -i "s/password = \".*\"/password = $PASSWORD/" "$CONFIG_FILE"
 sed -i "s/maxClientLatencySeconds = [0-9]\+/maxClientLatencySeconds = $MAX_LATENCY/" "$CONFIG_FILE"
 sed -i "s/pauseWhenEmpty = .*$/pauseWhenEmpty = $PAUSE/" "$CONFIG_FILE"
 sed -i "s/giveClientsPower = .*$/giveClientsPower = $GIVE_CLIENTS_POWER/" "$CONFIG_FILE"
 sed -i "s/logging = .*$/logging = $LOGGING/" "$CONFIG_FILE"
 sed -i "s/language = .*/language = $LANGUAGE/" "$CONFIG_FILE"
 sed -i "s/zipSaves = .*$/zipSaves = $ZIP_SAVES/" "$CONFIG_FILE"
-sed -i "s/MOTD = \".*\"/MOTD = \"$MOTD\"/" "$CONFIG_FILE"
+sed -i "s/MOTD = \".*\"/MOTD = $MOTD/" "$CONFIG_FILE"
 
 #switch to steam application directory
 cd "${STEAMAPPDIR}" || exit
