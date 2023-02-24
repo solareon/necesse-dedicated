@@ -23,7 +23,9 @@ ENV WORLD="world" \
 
 RUN mkdir ${STEAMAPPDIR}
 
-RUN chown ${USER}:${USER} ${STEAMAPPDIR}
+COPY server.cfg ${STEAMAPPDIR}/cfg/
+
+RUN chown steam:steam -R ${STEAMAPPDIR}
 
 # Switch to user
 USER ${USER}
@@ -31,8 +33,6 @@ USER ${USER}
 WORKDIR ${HOMEDIR}
 
 COPY entry.sh .
-
-COPY server.cfg ${STEAMAPPDIR}/cfg/
 
 # Overwrite Stopsignal for graceful server exits
 STOPSIGNAL SIGINT

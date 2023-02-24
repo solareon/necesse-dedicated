@@ -10,7 +10,7 @@ else
 fi
 
 # Set config file
-CONFIG_FILE=${STEAMAPPDIR}/config/server.cfg
+CONFIG_FILE=${STEAMAPPDIR}/cfg/server.cfg
 
 # Replace configuration options with environment variables
 sed -i "s/port = [0-9]\+/port = $PORT/" "$CONFIG_FILE"
@@ -29,4 +29,5 @@ cd "${STEAMAPPDIR}" || exit
 
 #launch server with any additional arguments
 "./StartServer-nogui.sh" -localdir \
+        -world "${WORLD}" \
         "${ADDITIONAL_ARGS}"
