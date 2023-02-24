@@ -5,21 +5,26 @@ FROM cm2network/steamcmd:root
 
 ENV STEAMAPPID 1169370
 ENV STEAMAPP necesse
-ENV STEAMAPPDIR "${HOMEDIR}/${STEAMAPP}-dedicated"
+ENV STEAMAPPDIR "/${STEAMAPP}"
 
-ENV WORLD=world \
-        SLOTS=10 \
-        MOTD="This server is made possible by Docker!" \
-        PASSWORD="" \
-        PAUSE=true \
-        GIVE_CLIENTS_POWER=false \
-        LOGGING=true \
-        ZIP=true
+ENV WORLD="world" \
+    PORT=14159 \
+    SLOTS=10 \
+    MOTD="This server is made possible by Docker!" \
+    PASSWORD="" \
+    PAUSE=true \
+    GIVE_CLIENTS_POWER=true \
+    MAX_LATENCY=30\
+    LOGGING=true \
+    LANGUAGE="en" \
+    ZIP_SAVES=true \
+    ADDITIONAL_ARGS="" \
+    STEAMCMD_UPDATE_ARGS=""
 
 # Switch to user
-USER steam
+USER ${USER}
 
-WORKDIR /home/steam
+WORKDIR ${HOMEDIR}
 
 COPY entry.sh .
 
