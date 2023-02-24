@@ -22,7 +22,7 @@ sed -i "s/giveClientsPower = .*$/giveClientsPower = $GIVE_CLIENTS_POWER/" "$CONF
 sed -i "s/logging = .*$/logging = $LOGGING/" "$CONFIG_FILE"
 sed -i "s/language = .*/language = $LANGUAGE/" "$CONFIG_FILE"
 sed -i "s/zipSaves = .*$/zipSaves = $ZIP_SAVES/" "$CONFIG_FILE"
-sed -i "s/MOTD = .*$/MOTD = $MOTD/" "$CONFIG_FILE"
+sed -i "s/MOTD = .*$/MOTD = \"$MOTD\"/" "$CONFIG_FILE"
 
 #switch to steam application directory
 cd "${STEAMAPPDIR}" || exit
