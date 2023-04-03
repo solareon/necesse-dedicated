@@ -42,7 +42,7 @@ services:
       - "ADDITIONAL_ARGS=" #optional
       - "STEAMCMD_UPDATE_ARGS="" #optional
     ports: 
-      - "14159/udp"
+      - "14159:14159/udp"
     restart: unless-stopped
 ```
 
