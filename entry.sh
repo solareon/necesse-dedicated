@@ -1,11 +1,19 @@
 #!/bin/bash
 
+# Check if the mounted directory has the correct permissions
+if [ "$(stat -c %U:%G "${STEAMAPPDIR}")" != "steam:steam" ]; then
+    echo "ERROR: The directory ${STEAMAPPDIR} is not owned by steam:steam."
+    echo "Please make sure that the directory is mounted with the correct permissions."
+    sleep 30
+    exit 1
+fi
+
 # Override SteamCMD launch arguments if necessary
 # Used for subscribing to betas or for testing
 if [ -z "$STEAMCMD_UPDATE_ARGS" ]; then
         bash "${STEAMCMDDIR}/steamcmd.sh" +force_install_dir "$STEAMAPPDIR" +login anonymous +app_update "$STEAMAPPID" +quit
 else
-        steamcmd_update_args=($STEAMCMD_UPDATE_ARGS)
+        steamcmd_update_args=("$STEAMCMD_UPDATE_ARGS")
         bash "${STEAMCMDDIR}/steamcmd.sh" +force_install_dir "$STEAMAPPDIR" +login anonymous +app_update "$STEAMAPPID" "${steamcmd_update_args[@]}" +quit
 fi
 
